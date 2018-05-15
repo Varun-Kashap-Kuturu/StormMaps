@@ -41,36 +41,18 @@
         }
       };
 
-     /* var mapStyle = [{
-          'featureType': 'all',
-          'elementType': 'all',
-          'stylers': [{'visibility': 'off'}]
-        }, {
-          'featureType': 'landscape',
-          'elementType': 'geometry',
-          'stylers': [{'visibility': 'on'}, {'color': '#fcfcfc'}]
-        }, {
-          'featureType': 'water',
-          'elementType': 'labels',
-          'stylers': [{'visibility': 'off'}]
-        }, {
-          'featureType': 'water',
-          'elementType': 'geometry',
-          'stylers': [{'visibility': 'on'}, {'hue': '#5f94ff'}, {'lightness': 60}]
-        }];
-        */
-
         function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: new google.maps.LatLng(32.715736, -117.161087),
           zoom: 15
-          //styles: mapStyle
         });
         
 
         var infoWindow = new google.maps.InfoWindow;
         
         var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+
+
         var icons = {
           redmarker: {
             name: 'RedMarker',
@@ -136,12 +118,6 @@
               } else if (type == "crew") {
                 iconColor = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png';
               }
-
-              /*
-              if (type == crew & health == 10) {
-                iconColor = 'http://maps.google.com/mapfiles/kml/pal2/icon47.png'
-              }
-              */
               
               var marker = new google.maps.Marker({
                 map: map,
@@ -166,18 +142,7 @@
         }
 
         map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
-        //loadMapShapes();
         }
-
-        function loadMapShapes() {
-        // load US state outline polygons from a GeoJson file
-        map.data.loadGeoJson('https://storage.googleapis.com/mapsdevsite/json/states.js', { idPropertyName: 'STATE' });
-
-        
-      }
-
-
-
 
       function downloadUrl(url, callback) {
         var request = window.ActiveXObject ?
